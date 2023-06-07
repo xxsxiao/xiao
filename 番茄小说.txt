@@ -1,0 +1,395 @@
+127.0.0.1 ads0-normal-hl.zijieapi.com
+127.0.0.1 ads0-normal-lq.zijieapi.com
+127.0.0.1 ads1-normal-hl.zijieapi.com
+127.0.0.1 ads1-normal-lq.zijieapi.com
+127.0.0.1 ads10-normal-hl.zijieapi.com
+127.0.0.1 ads10-normal-lq.zijieapi.com
+127.0.0.1 ads11-normal-hl.zijieapi.com
+127.0.0.1 ads11-normal-lq.zijieapi.com
+127.0.0.1 ads12-normal-hl.zijieapi.com
+127.0.0.1 ads12-normal-lq.zijieapi.com
+127.0.0.1 ads13-normal-hl.zijieapi.com
+127.0.0.1 ads13-normal-lq.zijieapi.com
+127.0.0.1 ads14-normal-hl.zijieapi.com
+127.0.0.1 ads14-normal-lq.zijieapi.com
+127.0.0.1 ads15-normal-hl.zijieapi.com
+127.0.0.1 ads15-normal-lq.zijieapi.com
+127.0.0.1 ads16-normal-hl.zijieapi.com
+127.0.0.1 ads16-normal-lq.zijieapi.com
+127.0.0.1 ads17-normal-hl.zijieapi.com
+127.0.0.1 ads17-normal-lq.zijieapi.com
+127.0.0.1 ads18-normal-hl.zijieapi.com
+127.0.0.1 ads18-normal-lq.zijieapi.com
+127.0.0.1 ads19-normal-hl.zijieapi.com
+127.0.0.1 ads19-normal-lq.zijieapi.com
+127.0.0.1 ads2-normal-hl.zijieapi.com
+127.0.0.1 ads2-normal-lq.zijieapi.com
+127.0.0.1 ads20-normal-hl.zijieapi.com
+127.0.0.1 ads20-normal-lq.zijieapi.com
+127.0.0.1 ads21-normal-hl.zijieapi.com
+127.0.0.1 ads21-normal-lq.zijieapi.com
+127.0.0.1 ads22-normal-hl.zijieapi.com
+127.0.0.1 ads22-normal-lq.zijieapi.com
+127.0.0.1 ads23-normal-hl.zijieapi.com
+127.0.0.1 ads23-normal-lq.zijieapi.com
+127.0.0.1 ads24-normal-hl.zijieapi.com
+127.0.0.1 ads24-normal-lq.zijieapi.com
+127.0.0.1 ads25-normal-hl.zijieapi.com
+127.0.0.1 ads25-normal-lq.zijieapi.com
+127.0.0.1 ads26-normal-hl.zijieapi.com
+127.0.0.1 ads26-normal-lq.zijieapi.com
+127.0.0.1 ads27-normal-hl.zijieapi.com
+127.0.0.1 ads27-normal-lq.zijieapi.com
+127.0.0.1 ads28-normal-hl.zijieapi.com
+127.0.0.1 ads28-normal-lq.zijieapi.com
+127.0.0.1 ads29-normal-hl.zijieapi.com
+127.0.0.1 ads29-normal-lq.zijieapi.com
+127.0.0.1 ads3-normal-hl.zijieapi.com
+127.0.0.1 ads3-normal-lq.zijieapi.com
+127.0.0.1 ads30-normal-hl.zijieapi.com
+127.0.0.1 ads30-normal-lq.zijieapi.com
+127.0.0.1 ads31-normal-hl.zijieapi.com
+127.0.0.1 ads31-normal-lq.zijieapi.com
+127.0.0.1 ads4-normal-hl.zijieapi.com
+127.0.0.1 ads4-normal-lq.zijieapi.com
+127.0.0.1 ads5-normal-hl.zijieapi.com
+127.0.0.1 ads5-normal-lq.zijieapi.com
+127.0.0.1 ads6-normal-hl.zijieapi.com
+127.0.0.1 ads6-normal-lq.zijieapi.com
+127.0.0.1 ads7-normal-hl.zijieapi.com
+127.0.0.1 ads7-normal-lq.zijieapi.com
+127.0.0.1 ads8-normal-hl.zijieapi.com
+127.0.0.1 ads8-normal-lq.zijieapi.com
+127.0.0.1 ads9-normal-hl.zijieapi.com
+127.0.0.1 ads9-normal-lq.zijieapi.com
+127.0.0.1 v0-novelapp.ixigua.com
+127.0.0.1 v1-novelapp.ixigua.com
+127.0.0.1 v10-novelapp.ixigua.com
+127.0.0.1 v11-novelapp.ixigua.com
+127.0.0.1 v12-novelapp.ixigua.com
+127.0.0.1 v13-novelapp.ixigua.com
+127.0.0.1 v14-novelapp.ixigua.com
+127.0.0.1 v15-novelapp.ixigua.com
+127.0.0.1 v16-novelapp.ixigua.com
+127.0.0.1 v17-novelapp.ixigua.com
+127.0.0.1 v18-novelapp.ixigua.com
+127.0.0.1 v19-novelapp.ixigua.com
+127.0.0.1 v2-novelapp.ixigua.com
+127.0.0.1 v20-novelapp.ixigua.com
+127.0.0.1 v21-novelapp.ixigua.com
+127.0.0.1 v22-novelapp.ixigua.com
+127.0.0.1 v23-novelapp.ixigua.com
+127.0.0.1 v24-novelapp.ixigua.com
+127.0.0.1 v25-novelapp.ixigua.com
+127.0.0.1 v26-novelapp.ixigua.com
+127.0.0.1 v27-novelapp.ixigua.com
+127.0.0.1 v28-novelapp.ixigua.com
+127.0.0.1 v29-novelapp.ixigua.com
+127.0.0.1 v3-novelapp.ixigua.com
+127.0.0.1 v30-novelapp.ixigua.com
+127.0.0.1 v31-novelapp.ixigua.com
+127.0.0.1 v4-novelapp.ixigua.com
+127.0.0.1 v5-novelapp.ixigua.com
+127.0.0.1 v6-novelapp.ixigua.com
+127.0.0.1 v7-novelapp.ixigua.com
+127.0.0.1 v8-novelapp.ixigua.com
+127.0.0.1 v9-novelapp.ixigua.com
+220.243.141.215$network
+220.243.141.215:443$network,app=com.adguard.system
+220.243.141.37:9681$network,app=com.dragon.read
+111.13.213.245:5222$network,app=com.dragon.read
+@@||112.28.245.184:443^$app=cn.kuwo.player
+@@||112.28.245.186:443^$app=cn.kuwo.player
+@@||120.221.179.155:443^$app=cn.kuwo.player
+@@||120.221.180.167:443^$app=cn.kuwo.player
+@@||120.221.180.94:443^$app=cn.kuwo.player
+[AWSP.displayName == "Amazon Web Services"]
+[AmazonAWS].com
+[admob.google.com]
+[adservice.google.com]
+[app].tooto.app
+[applivescp.net]
+[c.ringcaptcha.com]
+[doubleclick.net]
+[google-analytics.com]
+[googleadapis.com]
+[googleads.g.doubleclick.net]
+[googlesyndication.com]
+[googletagmanager.com]
+[googletagservices.com]
+[googleusercontent.com]
+[googlevideo.com]
+[gstatic.com]
+[leadboltads.net]
+[live.chartboost.com]
+[mmstat.com]
+[s1.wp.com]
+[scorecardresearch.com]
+[stats.g.doubleclick.net]
+[swrve.com]
+[wss.pollfish.com]
+||*.alicdn.com^$app=com.dragon.read
+||101-206-252-241.volcsiriusbd.com^
+||101.206.201.225:443^$app=com.dragon.read
+||101.207.252.229:443^
+||111.13.141.211:443^$app=com.dragon.read
+||111.13.24.68:443^
+||111.132.34.248:80^$app=com.dragon.read
+||111.31.66.220:443^$app=com.dragon.read
+||111.31.66.224:443^$app=com.dragon.read
+||112-194-48-224-yf016101.free-lbv6.idouyinvod.com^
+||112.192.22.90:443^
+||112.194.65.102:80^
+||113.207.83.53:443^$app=com.dragon.read
+||116.132.223.77:443^
+||116.169.11.27:443^$app=com.dragon.read
+||116.169.11.31:443^$app=com.dragon.read
+||116.169.48.137:443^
+||116.176.36.234:443^$app=com.dragon.read
+||116.176.36.240:443^$app=com.dragon.read
+||118.182.224.208:443^$app=com.dragon.read
+||123.182.49.223:443^$app=com.dragon.read
+||123.246.193.153:443^$app=com.dragon.read
+||123.246.193.158:443^$app=com.dragon.read
+||123.6.82.180:80^
+||124.193.244.230:80^$app=com.dragon.read
+||124.202.165.101:443^$app=com.dragon.read
+||125.74.34.249:443^$app=com.dragon.read
+||203.119.216.50:443^$app=com.dragon.read
+||220.113.153.99:80^$app=com.dragon.read
+||220.167.147.60:8889^$app=com.dragon.read
+||220.243.141.215:443^
+||240e-318-6a04-2425-272-870-657-7956-yf62d77c.free-lbv6.idouyinvod.com^$app=com.dragon.read
+||27-227-5-211-yfadb323.free-lbv6.idouyinvod.com^$app=com.dragon.read
+||36.103.194.244:443^$app=com.dragon.read
+||45.253.17.226:80^$app=com.dragon.read
+||59.82.112.196:443^$app=com.dragon.read
+||59.82.113.97:80^$app=com.dragon.read
+||59.82.23.214:80^$app=com.dragon.read
+||7qmv8gnreqg8pmup1c7milsslpv5hf3lg2l14bsm9j5n1cqece8vu4cg.qc.bsccdn.net^$app=com.dragon.read
+||abtest3-misc-lf.zijieapi.com^$app=com.dragon.read
+||abtest3-misc-lq.zijieapi.com^$app=com.dragon.read
+||abtest3-misc.zijieapi.com^$app=com.dragon.read
+||adash.man.aliyuncs.com^
+||adash.man.aliyuncs.com^$app=com.dragon.read
+||adim.pinduoduo.com^$app=com.dragon.read
+||ads3-normal-lf.zijieapi.com^$app=com.dragon.r
+||ads3-normal-lf.zijieapi.com^$app=com.dragon.read
+||ads3-normal-lq.zijieapi.com^
+||ads3-normal-lq.zijieapi.com^$app=com.dragon.read
+||ads5-normal-hl.zijieapi.com^$app=com.dragon.read
+||ads5-normal-lf.zijieapi.com^
+||ads5-normal-lf.zijieapi.com^$app=com.dragon.read
+||ads5-normal-lq.zijieapi.com^
+||ads5-normal-lq.zijieapi.com^$app=com.dragon.read
+||ads5-normal.zijieapi.com^$app=com.dragon.read
+||api-access.pangolin-sdk-toutiao-b.com^$app=com.dragon.read
+||api-access.pangolin-sdk-toutiao.com^
+||api-access.pangolin-sdk-toutiao.com^$app=com.dragon.read
+||api.toutiaoapi.com^
+||api.toutiaoapi.com^$app=com.dragon.read
+||api3-normal-hl.fqnovel.com^$app=com.dragon.read
+||api3-normal-lf.fqnovel.com^$app=com.dragon.read
+||api3-normal-lq.fqnovel.com^$app=com.dragon.read
+||api5-normal-hl.fqnovel.com^$app=com.dragon.read
+||api5-normal-lf.fqnovel.com^$app=com.dragon.read
+||api5-normal-lq.fqnovel.com^$app=com.dragon.read
+||apimobile.meituan.com^$app=com.dragon.read
+||beacon-api.aliyuncs.com^
+||beacon-api.aliyuncs.com^$app=com.dragon.read
+||bsync3-normal-lf.zijieapi.com^$app=com.dragon.read
+||bsync3-normal-lq.zijieapi.com^
+||bsync3-normal-lq.zijieapi.com^$app=com.dragon.read
+||cksigjra6h3taimi321j3ac189c2d3k7u0251gts9g4racpoh5hfva1s.qc.bsccdn.net^$app=com.dragon.read
+||config2.cmpassport.com^$app=com.dragon.read
+||dig.bdurl.net^$app=com.dragon.read
+||dig.zjurl.cn^
+||dig.zjurl.cn^$app=com.dragon.read
+||ec3-core-hl.ecombdapi.com^$app=com.dragon.read
+||ec3-core-lq.ecombdapi.com^
+||ec3-core-lq.ecombdapi.com^$app=com.dragon.read
+||ec5-core-hl.ecombdapi.com^$app=com.dragon.read
+||ec5-core-lq.ecombdapi.com^
+||ec5-core-lq.ecombdapi.com^$app=com.dragon.read
+||ecom3-normal-lf.ecombdapi.com^$app=com.dragon.read
+||ecom3-normal-lq.ecombdapi.com^$app=com.dragon.read
+||effect.snssdk.com^$app=com.dragon.read
+||event.toggle.qq.com^$app=com.tencent.mtt
+||feedback-c.zijieapi.com^
+||feedback-c.zijieapi.com^$app=com.dragon.read
+||fgo62tudkavcn90gmiem3ltu17jig9sq4em8a15jqs6vandf4nrvufr4.qc.bsccdn.net^$app=com.dragon.read
+||frontier-toutiao.snssdk.com^
+||frontier-toutiao.snssdk.com^$app=com.dragon.read
+||frontier.snssdk.com^$app=com.dragon.read
+||gecko.snssdk.com^
+||gecko3-lq.zijieapi.com^$app=com.dragon.read
+||gecko5-lf.zijieapi.com^$app=com.dragon.read
+||gecko5-lq.zijieapi.com^
+||gecko5-lq.zijieapi.com^$app=com.dragon.read
+||grs.dbankcloud.cn^$app=com.dragon.read
+||i-lq.snssdk.com^$app=com.dragon.read
+||ib-lq.snssdk.com^$app=com.dragon.read
+||ichannel.snssdk.com^$app=com.dragon.read
+||im-x.jd.com^$app=com.dragon.read
+||imapi2.snssdk.com^
+||imapi2.snssdk.com^$app=com.dragon.read
+||is-hl.snssdk.com^$app=com.dragon.read
+||is-lq.snssdk.com^$app=com.dragon.read
+||is.snssdk.com^$app=com.dragon.read
+||kde.qq.com^$app=com.tencent.mtt
+||lf-cdn-tos.bytescm.com^
+||lf-cdn-tos.bytescm.com^$app=com.dragon.read
+||lf26-cj-cdn-tos.bytegecko.com^$app=com.dragon.read
+||lf26-common-release.bytetos.com^
+||lf26-common-release.bytetos.com^$app=com.dragon.read
+||lf26-effectcdn-tos.byteeffecttos.com^$app=com.dragon.read
+||lf3-cdn-tos.bytegecko.com^
+||lf3-cdn-tos.bytegecko.com^$app=com.dragon.read
+||lf3-reading.fqnovelpic.com^$app=com.dragon.read
+||lf3-short.bytetos.com^
+||lf3-short.ibytedapm.com^$app=com.dragon.read
+||lf3-webcastcdn-tos-sign.douyinstatic.com^
+||lf3-webcastcdn-tos-sign.douyinstatic.com^$app=com.dragon.read
+||lf5-cdn-tos.bytegecko.com^$app=com.dragon.read
+||lf6-ad-union-sdk.pglstatp-toutiao.com^$app=com.dragon.read
+||lf6-common-release.bytetos.com^
+||lf9-cdn-tos.bytegecko.com^$app=com.dragon.read
+||lf9-common-ckv-tos.pstatp.com^$app=com.dragon.read
+||lf9-common-release.bytetos.com^
+||lf9-common-release.bytetos.com^$app=com.dragon.read
+||log-api.pangolin-sdk-toutiao-b.com^
+||log-api.pangolin-sdk-toutiao-b.com^$app=com.dragon.read
+||log2.cmpassport.com^$app=com.dragon.read
+||log3-applog-lq.fqnovel.com^$app=com.dragon.read
+||log5-applog-hl.fqnovel.com^$app=com.dragon.read
+||log5-applog-lf.fqnovel.com^$app=com.dragon.read
+||log5-applog-lq.fqnovel.com^
+||log5-applog-lq.fqnovel.com^$app=com.dragon.read
+||log5-applog.fqnovel.com^
+||ma3-normal-lq.zijieapi.com^$app=com.dragon.read
+||ma5-normal-lq.zijieapi.com^$app=com.dragon.read
+||mon.snssdk.com^$app=com.dragon.read
+||mon.zijieapi.com^$app=com.dragon.read
+||mon11-misc-hl.fqnovel.com^$app=com.dragon.read
+||mon11-misc-lf.fqnovel.com^$app=com.dragon.read
+||mon11-misc-lq.fqnovel.com^$app=com.dragon.read
+||mon11-misc.fqnovel.com^$app=com.dragon.read
+||mon3-misc-lf.fqnovel.com^$app=com.dragon.read
+||monsetting.toutiao.com^$app=com.dragon.read
+||mp.weixin.qq.com^
+||msg.umengcloud.com^
+||mssdk-bu.bytedance.com^$app=com.dragon.read
+||mssdk.zijieapi.com^$app=com.dragon.read
+||mssdk3-normal-lq.zijieapi.com^$app=com.dragon.read
+||nfmitg08j5gkiptr570p6pffmm85bvtdme1et9oe59pvf076lprvvimf.qc.bsccdn.net^$app=com.dragon.read
+||opencloud.wostore.cn^
+||opencloud.wostore.cn^$app=com.dragon.read
+||p1-noveldistrib.byteimg.com^$app=com.dragon.read
+||p1-tt.byteimg.com^
+||p11.douyinpic.com^$app=com.dragon.read
+||p26-be-pack-sign.pglstatp-toutiao.com^
+||p26-be-pack-sign.pglstatp-toutiao.com^$app=com.dragon.read
+||p26-sign.douyinpic.com^$app=com.dragon.read
+||p26-tt.byteimg.com^
+||p26.douyinpic.com^$app=com.dragon.read
+||p3-be-pack-sign.pglstatp-toutiao.com^
+||p3-be-pack-sign.pglstatp-toutiao.com^$app=com.dragon.read
+||p3-developer-sign.bytemaimg.com^
+||p3-developer-sign.bytemaimg.com^$app=com.dragon.read
+||p3-novel.byteimg.com^$app=com.dragon.read
+||p3-novelfm-sign.novelfmpic.com^$app=com.dragon.read
+||p3-reading-sign.fqnovelpic.com^$app=com.dragon.read
+||p3-sign.douyinpic.com^
+||p3-sign.douyinpic.com^$app=com.dragon.read
+||p3-webcast-sign.douyinpic.com^$app=com.dragon.read
+||p3-webcast.douyinpic.com^$app=com.dragon.read
+||p3.douyinpic.com^$app=com.dragon.read
+||p6-ad-sign.byteimg.com^
+||p6-ad-sign.byteimg.com^$app=com.dragon.read
+||p6-be-pack-sign.pglstatp-toutiao.com^
+||p6-be-pack-sign.pglstatp-toutiao.com^$app=com.dragon.read
+||p6-developer-sign.bytemaimg.com^
+||p6-novel.byteimg.com^$app=com.dragon.read
+||p6-novel1-sign.byteimg.com^$app=com.dragon.read
+||p6-novelfm-sign.novelfmpic.com^
+||p6-reading-sign.fqnovelpic.com^$app=com.dragon.read
+||p6.douyinpic.com^$app=com.dragon.read
+||p9-ad-sign.byteimg.com^
+||p9-ad-sign.byteimg.com^$app=com.dragon.read
+||p9-be-pack-sign.pglstatp-toutiao.com^
+||p9-be-pack-sign.pglstatp-toutiao.com^$app=com.dragon.read
+||p9-developer-sign.bytemaimg.com^
+||p9-developer-sign.bytemaimg.com^$app=com.dragon.read
+||p9-novelfm-sign.novelfmpic.com^$app=com.dragon.read
+||p9-reading-sign.fqnovelpic.com^$app=com.dragon.read
+||p9-reading.byteimg.com^
+||p9-webcast-sign.douyinpic.com^$app=com.dragon.read
+||pangolin-sdk-toutiao-b.com'
+||pangolin-sdk-toutiao-b.com^
+||pangolin-sdk-toutiao.com^
+||pglstatp-toutiao.com^
+||pglstatp-toutiao.com^   ​​‌‍‌‍​‌‌​​‌‍​‌‍‌​‌​‌​‍​​‌‍‍​‌‍‌​‌​
+||pglstatp-toutiao.com^   ​​‌‍‌‍​‌‌​​‌‍​‌‍‌​‌​‌​‍​​‌‍‍​‌‍‌​‌​‍‌‌‌​​‌‌‌‌‍​‌‍​‍​‍​‍‌‌‌‍‍‍​‌
+||pglstatp-toutiao.com^  ​‌​‍‍‍‍‌‍‌​​​‌‍
+||plbslog.umeng.com^$app=com.dragon.read
+||polaris.zijieapi.com^$app=com.dragon.read
+||polaris3-normal-lf.zijieapi.com^$app=com.dragon.read
+||polaris3-normal-lq.zijieapi.com^
+||polaris3-normal-lq.zijieapi.com^$app=com.dragon.read
+||pull-flv-f13.douyincdn.com^
+||pull-flv-f26.douyincdn.com^$app=com.dragon.read
+||pull-flv-f96.douyincdn.com^$app=com.dragon.read
+||pull-l3.douyincdn.com^$app=com.dragon.read
+||reading-hl.snssdk.com^$app=com.dragon.read
+||reading-lq.snssdk.com^$app=com.dragon.read
+||reading.snssdk.com^
+||resolver.msg.xiaomi.net^$app=com.dragon.read
+||rtawin.daikuan.360.cn^$app=com.dragon.read
+||rtb.voiceads.cn^$app=com.dragon.read
+||rtlog3-applog-lq.fqnovel.com^$app=com.dragon.read
+||rtlog5-applog-lq.fqnovel.com^
+||rtlog5-applog-lq.fqnovel.com^$app=com.dragon.read
+||saveu5-normal-lf.zijieapi.com^$app=com.dragon.read
+||saveu5-normal-lq.zijieapi.com^$app=com.dragon.read
+||security-hl.snssdk.com^$app=com.dragon.read
+||security-lq.snssdk.com^$app=com.dragon.read
+||security.snssdk.com^$app=com.dragon.read
+||settings.ttwebview.com^$app=com.dragon.read
+||sf1-pitaya-tos.pstatp.com^
+||sf3-fe-tos.pglstatp-toutiao.com^
+||sf3-fe-tos.pglstatp-toutiao.com^$app=com.dragon.read
+||sf3-pitaya-tos.pstatp.com^
+||skdisplay.jd.com^
+||skdisplay.jd.com^$app=com.dragon.read
+||tnc11-aliec2.zijieapi.com^$app=com.dragon.read
+||tnc11-alisc1.zijieapi.com^$app=com.dragon.read
+||tnc11-bjlgy.zijieapi.com^$app=com.dragon.read
+||tnc3-aliec2.zijieapi.com^$app=com.dragon.read
+||tnc3-alisc1.bytedance.com^$app=com.dragon.read
+||tnc3-alisc1.snssdk.com^$app=com.dragon.read
+||tnc3-alisc1.zijieapi.com^
+||tnc3-alisc1.zijieapi.com^$app=com.dragon.read
+||tnc3-bjlgy.snssdk.com^$app=com.dragon.read
+||tnc3-bjlgy.zijieapi.com^
+||tnc3-bjlgy.zijieapi.com^$app=com.dragon.read
+||toblog.ctobsnssdk.com^$app=com.dragon.read
+||tr.byteurl.cn^$app=com.dragon.read
+||ulogs.umeng.com^$app=com.dragon.read
+||v3-be-pack.pglstatp-toutiao.com^
+||v3-be-pack.pglstatp-toutiao.com^$app=com.dragon.read
+||v3-novelapp.fqnovelvod.com^
+||v3-novelapp.fqnovelvod.com^$app=com.dragon.read
+||v6-be-pack.pglstatp-toutiao.com^
+||v6-be-pack.pglstatp-toutiao.com^$app=com.dragon.read
+||v6-novelapp.fqnovelvod.com^
+||v6-novelapp.fqnovelvod.com^$app=com.dragon.read
+||v9-be-pack.pglstatp-toutiao.com^
+||v9-be-pack.pglstatp-toutiao.com^$app=com.dragon.read
+||vcs.zijieapi.com^$app=com.dragon.read
+||webcast5-open-lf.douyin.com^$app=com.dragon.read
+||webcast5-open-lq.douyin.com^
+||webcast5-open-lq.douyin.com^$app=com.dragon.read
+||wxsnsdy.wxs.qq.com^
+||wxsnsdythumb.wxs.qq.com^
+||zijieapi.com^$app=com.dragon.read
+||zlink.toutiao.com^$app=com.dragon.read
