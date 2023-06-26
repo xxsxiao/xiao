@@ -209,7 +209,6 @@ tcp://101.206.241.228:80
 ||45.253.17.226:80^$app=com.dragon.read
 ||59.82.112.196:443^$app=com.dragon.read
 ||59.82.113.97:80^$app=com.dragon.read
-||59.82.23.214:80^$app=com.dragon.read
 ||7qmv8gnreqg8pmup1c7milsslpv5hf3lg2l14bsm9j5n1cqece8vu4cg.qc.bsccdn.net^$app=com.dragon.read
 ||abtest3-misc-lf.zijieapi.com^$app=com.dragon.read
 ||abtest3-misc-lq.zijieapi.com^$app=com.dragon.read
