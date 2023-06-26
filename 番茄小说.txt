@@ -1,4 +1,3 @@
-111.13.213.245:5222$network,app=com.dragon.read
 127.0.0.1 aaid.umeng.com
 127.0.0.1 access.pangolin-sdk-toutiao-b.com
 127.0.0.1 access1.tpns.tencent.com
@@ -125,46 +124,16 @@
 127.0.0.1 v7-novelapp.ixigua.com
 127.0.0.1 v8-novelapp.ixigua.com
 127.0.0.1 v9-novelapp.ixigua.com
-220.243.141.215$network
-220.243.141.215:443$network,app=com.adguard.system
+111.13.213.245:5222$network,app=com.dragon.read
+220.243.141.215:443$network
 220.243.141.37:9681$network,app=com.dragon.read
-@@||112.28.245.184:443^$app=cn.kuwo.player
-@@||112.28.245.186:443^$app=cn.kuwo.player
-@@||120.221.179.155:443^$app=cn.kuwo.player
-@@||120.221.180.167:443^$app=cn.kuwo.player
-@@||120.221.180.94:443^$app=cn.kuwo.player
-[AWSP.displayName == "Amazon Web Services"]
-[AmazonAWS].com
-[admob.google.com]
-[adservice.google.com]
-[app].tooto.app
-[applivescp.net]
-[c.ringcaptcha.com]
-[doubleclick.net]
-[google-analytics.com]
-[googleadapis.com]
-[googleads.g.doubleclick.net]
-[googlesyndication.com]
-[googletagmanager.com]
-[googletagservices.com]
-[googleusercontent.com]
-[googlevideo.com]
-[gstatic.com]
-[leadboltads.net]
-[live.chartboost.com]
-[mmstat.com]
-[s1.wp.com]
-[scorecardresearch.com]
-[stats.g.doubleclick.net]
-[swrve.com]
-[wss.pollfish.com]
-com.baidu.netdisk.advertise.ui.AdvertiseContentActivity
-com.baidu.netdisk.ui.DefaultMainActivity
-com.baidu.netdisk.ui.MainActivity
-com.baidu.netdisk.ui.Navigate
-tcp://
-tcp://101.206.241.228:80
-||*.ad.*.com
+@@||112.28.245.184:443^$app=com.dragon.read
+@@||112.28.245.186:443^$app=com.dragon.read
+@@||120.221.179.155:443^$app=com.dragon.read
+@@||120.221.180.167:443^$app=com.dragon.read
+@@||120.221.180.94:443^$app=com.dragon.read
+||tcp://101.206.241.228:80^
+||*.ad.*.com^
 ||*.alicdn.com^$app=com.dragon.read
 ||101-206-252-241.volcsiriusbd.com^
 ||101.206.201.225:443^$app=com.dragon.read
