@@ -13,6 +13,7 @@ import time
 import glob
 import re
 import subprocess
+import shutil
 print("流量杀手-启动")
 print("正在检查安装依赖")
 def check_dependencies(*dependencies):
@@ -24,7 +25,32 @@ def check_dependencies(*dependencies):
             print(f"{dependency} 依赖未安装-请去依赖管理-python进行安装")
 
 # 检查多个依赖
-check_dependencies("os", "requests", "re", "time", "glob", "subprocess")
+check_dependencies("os", "requests", "re", "time", "glob", "subprocess", "shutil")
+print("开始删除旧文件日志 ┄ ┄ ┄ 如果没有日志或者任务未运行请手动重新再运行")
+time.sleep(3)
+from datetime import datetime
+
+# 定义要遍历的目录路径
+directory = '/ql/data/log/'
+
+# 指定要匹配的文件夹名称模式
+folder_pattern = r'.*刷流量.*'
+
+# 获取当前时间
+current_time = datetime.now()
+
+for root, dirs, files in os.walk(directory):
+    for dir_name in dirs:
+        if re.match(folder_pattern, dir_name):
+            dir_path = os.path.join(root, dir_name)
+            file_list = os.listdir(dir_path)
+            if file_list:  # 检查文件列表是否为空
+                first_file = file_list[0]  # 获取文件夹中的第一个文件
+                first_file_path = os.path.join(dir_path, first_file)
+                if os.path.isfile(first_file_path):
+                    print("要删除旧日志文件路径:", first_file_path)
+                    print("要删除旧日志文件名称:", first_file)
+                    os.remove(first_file_path)  # 删除文件
 print("┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄")
 url = 'http://myip.ipip.net/'
 response = requests.get(url)
@@ -68,5 +94,4 @@ def download_file(url):
 
         print(f"下载完成。等待5秒后重新开始下载...\n┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄")
         time.sleep(5)
-
 download_file(url)
