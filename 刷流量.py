@@ -16,7 +16,6 @@ import glob
 import re
 import subprocess
 import shutil
-import select
 
 print("流量杀手-启动")
 print("正在检查安装依赖")
