@@ -8,14 +8,14 @@ by：神也眷顾小晓吖
 修复保活规则，利用系统wget进行下载
 12/28
 修复卡死线程问题
+增加推送通知！
 '''
 import requests
 import os
 import time
-import glob
 import re
 import subprocess
-import shutil
+import sys
 
 print("流量杀手-启动")
 print("正在检查安装依赖")
@@ -28,7 +28,7 @@ def check_dependencies(*dependencies):
             print(f"{dependency} 依赖未安装-请去依赖管理-python进行安装")
 
 # 检查多个依赖
-check_dependencies("os", "requests", "re", "time", "glob", "subprocess", "shutil")
+check_dependencies("os", "requests", "re", "subprocess", "sys")
 print("请手动删除旧文件日志\n没有日志就多重新开启几次")
 time.sleep(5)
 from datetime import datetime
@@ -55,21 +55,59 @@ for root, dirs, files in os.walk(directory):
                     print("要删除旧日志文件名称(可能有很多个日志):", first_file)
                    # os.remove(first_file_path)  # 删除文件
 print("┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄")
-url = 'http://myip.ipip.net/'
-response = requests.get(url)
-print(f"国内IP地址：{response.text}")
-url = 'https://ipinfo.io/json'
-response = requests.get(url)
-if response.status_code == 200:
-    data = response.json()
-    ip = data['ip']
-    country = data['country']
-    city = data['city']
-    
-    print(f"国外IP地址：IP 地址: {ip},国家: {country},城市: {city}")
+#推送
+def load_send_notification():
+    cur_path = os.path.abspath(os.path.dirname(__file__))
+    sendNotifyPath = os.path.join(cur_path, "notify.py")
+    try:
+        from notify import send
+        return send
+    except ImportError:
+        print("加载通知服务失败！")
+        return None
+
+# 修改get_local_ip()函数
+def get_local_ip():
+    try:
+        url = 'http://myip.ipip.net/'
+        response = requests.get(url)
+        if response.ok:
+            return response.text
+        else:
+            return "无法获取本地IP"
+    except requests.exceptions.RequestException as e:
+        return f"获取数据失败: {e}"
+
+# 修改get_foreign_ip()函数
+def get_foreign_ip():
+    url = 'https://ipinfo.io/json'
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # 检查请求是否成功
+        if response.text:  # 校验响应内容是否为空
+            data = response.json()
+            ip = data.get('ip', 'N/A')
+            country = data.get('country', 'N/A')
+            city = data.get('city', 'N/A')
+            return f"国外IP地址：IP 地址: {ip},国家: {country},城市: {city}"
+        else:
+            return "无法获取本地IP"
+    except requests.exceptions.RequestException as e:
+        return f"获取数据失败: {e}"
+
+# 获取本地IP地址
+domestic_ip = get_local_ip()
+
+# 获取国外IP地址
+foreign_ip = get_foreign_ip()
+
+# 加载通知服务并发送通知
+send_notification = load_send_notification()
+if send_notification:
+    send_notification("流量杀手-本地青龙通知", f"流量杀手已启动……\n国内IP地址：{domestic_ip}\n{foreign_ip}\n┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄")
 else:
-    print(f"获取数据失败: {response.status_code}")
-print("┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄")
+    print('通知服务加载失败，请重试！')
+print("┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄")    
 url = 'https://issuecdn.baidupcs.com/issue/netdisk/apk/BaiduNetdiskSetup_wap_share.apk'
 
 def download_file(url):
@@ -92,6 +130,7 @@ def download_file(url):
         process.communicate()
         
         print(f"第 {i} 次下载完成")
+        os.system("pkill wget")
         if i < 200:
             print("等待5秒后重新开始下载...\n┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄ ┄")
             time.sleep(5)
