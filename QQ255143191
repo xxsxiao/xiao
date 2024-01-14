@@ -6,6 +6,7 @@ vmess://eyJhZGQiOiIxIiwiYWlkIjoiMCIsImFscG4iOiIiLCJmcCI6IiIsImhvc3QiOiIxIiwiaWQi
 vmess://eyJhZGQiOiIxMDMuMTk3LjE4NS4xNzEiLCJhaWQiOiIwIiwiYWxwbiI6IiIsImZwIjoiIiwiaG9zdCI6IlFRMjU1MTQzMTkxIiwiaWQiOiIyN2U3ZGI3MC1iYjk3LTRhYTMtYzkwNC1kMjQxZDRmNjM1M2YiLCJuZXQiOiJ3cyIsInBhdGgiOiIvIiwicG9ydCI6IjgwIiwicHMiOiLlhY3otLlAMjU1MTQzMTkxIiwic2N5IjoiYXV0byIsInNuaSI6IiIsInRscyI6IiIsInR5cGUiOiIiLCJ2IjoiMiJ9
 
 vmess://eyJhZGQiOiIxIiwiYWlkIjoiMCIsImFscG4iOiIiLCJmcCI6IiIsImhvc3QiOiIxIiwiaWQiOiIwIiwibmV0Ijoid3MiLCJwYXRoIjoiLyIsInBvcnQiOiI4MDgwIiwicHMiOiLku6XkuIvnv7vlopnoioLngrkiLCJzY3kiOiJhdXRvIiwic25pIjoiIiwidGxzIjoiIiwidHlwZSI6IiIsInYiOiIyIn0=
+trojan://0@1:443?security=reality&headerType=none&type=tcp&sni=这里改成免流混淆#trojan%E5%8D%8F%E8%AE%AE%E6%94%B9sni%E5%8F%AF%E4%BB%A5%E5%85%8D%E6%B5%81%E7%9C%8B%E6%88%91%E8%BF%99%E4%B8%AA%E4%BA%8B%E4%BE%8B
 trojan://a726b3ac-a64b-427b-bd89-88eda8b11d23@104.16.132.167:443?path=%2F&security=tls&type=ws&sni=e1.777655.xyz#%E7%BE%8E%E5%9B%BD01%7C+%E4%B8%93%E7%BA%BF
 trojan://a726b3ac-a64b-427b-bd89-88eda8b11d23@172.64.166.58:443?path=%2F&security=tls&type=ws&sni=e2.777655.xyz#%E7%BE%8E%E5%9B%BD02%7C+%E4%B8%93%E7%BA%BF
 trojan://a726b3ac-a64b-427b-bd89-88eda8b11d23@us1.c8f88544-6b5a-44db-d8fd-5a2e09141650.36a8c922.the-best-airport.com:443?security=tls&headerType=none&type=tcp&sni=144-22-163-118.nhost.00cdn.com#%F0%9F%87%BA%F0%9F%87%B8%E7%BE%8E%E5%9B%BD+01+%7C+%E4%B8%93%E7%BA%BF
