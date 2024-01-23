@@ -16,6 +16,7 @@ dns:
     fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 proxies:
     - { name: '♡神也眷顾小晓吖♡', type: vmess, server: '1', port: 8080, uuid: 23336f07-b337-491a-9e24-ab1c6c9db00b, alterId: 0, cipher: auto, udp: true, network: ws }
+- { name: '备用节点2', type: vmess, server: '1', port: 8080, uuid: 23336f07-b337-491a-9e24-ab1c6c9db00b, alterId: 0, cipher: auto, udp: true, network: ws }
     - { name: CN-上海游戏节点, type: vmess, server: 124.220.57.75, port: 80, uuid: 23336f07-b337-491a-9e24-ab1c6c9db00b, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /, headers: { Host: gw.alicdn.com } }, ws-path: /, ws-headers: { Host: gw.alicdn.com } }
     - { name: CN-浙江BGP, type: vmess, server: nb.xn--wlqw1swrj04ju56d.com, port: 80, uuid: 23336f07-b337-491a-9e24-ab1c6c9db00b, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /, headers: { Host: gw.alicdn.com } }, ws-path: /, ws-headers: { Host: gw.alicdn.com } }
     - { name: CN-河南移动, type: vmess, server: hn.xn--wlqw1swrj04ju56d.com, port: 80, uuid: 23336f07-b337-491a-9e24-ab1c6c9db00b, alterId: 0, cipher: auto, udp: true, network: ws, ws-opts: { path: /, headers: { Host: gw.alicdn.com } }, ws-path: /, ws-headers: { Host: gw.alicdn.com } }
