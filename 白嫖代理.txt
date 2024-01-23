@@ -1,7 +1,0 @@
-proxies:
-  - {name: 01, server: tiananmen.19890604.day, port: 10808, client-fingerprint: chrome, type: trojan, password: c71b7574-aeaa-40f0-989b-47f3fe7ac85a, sni: cloudflare.node-ssl.cdn-alibaba.com, skip-cert-verify: true, udp: true}
-  - {name: 02, server: tiananmen.19890604.day, port: 10805, client-fingerprint: chrome, type: trojan, password: c71b7574-aeaa-40f0-989b-47f3fe7ac85a, sni: cloudflare.node-ssl.cdn-alibaba.com, skip-cert-verify: true, udp: true}
-  - {name: 03, server: tiananmen.19890604.day, port: 10806, client-fingerprint: chrome, type: trojan, password: c71b7574-aeaa-40f0-989b-47f3fe7ac85a, sni: cloudflare.node-ssl.cdn-alibaba.com, skip-cert-verify: true, udp: true}
-  - {name: 04, server: tank.19890604.day, port: 10832, client-fingerprint: chrome, type: trojan, password: c71b7574-aeaa-40f0-989b-47f3fe7ac85a, sni: cloudflare.node-ssl.cdn-alibaba.com, skip-cert-verify: true, udp: true}
-  - {name: 05, server: 183.236.48.169, port: 1002, client-fingerprint: chrome, type: vmess, uuid: 229ccd44-c56c-3947-88de-849dd70c180d, alterId: 2, cipher: auto, tls: false, tfo: false, skip-cert-verify: true, udp: true}
-  - {name: 06, server: xijinping.19890604.day, port: 10812, client-fingerprint: chrome, type: trojan, password: c71b7574-aeaa-40f0-989b-47f3fe7ac85a, sni: cloudflare.node-ssl.cdn-alibaba.com, skip-cert-verify: true, udp: true}
