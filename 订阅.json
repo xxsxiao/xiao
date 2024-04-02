@@ -1,0 +1,531 @@
+{
+  "outbounds": [
+    {
+      "tag": "🇨🇳 CN-上海游戏节点",
+      "type": "vmess",
+      "server": "124.220.57.75",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇨🇳 CN-浙江BGP",
+      "type": "vmess",
+      "server": "nb.xn--wlqw1swrj04ju56d.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇨🇳 CN-安徽联通",
+      "type": "vmess",
+      "server": "ah.xn--wlqw1swrj04ju56d.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇨🇳 CN-河南移动",
+      "type": "vmess",
+      "server": "hn.xn--wlqw1swrj04ju56d.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇨🇳 CN-宿迁BGP",
+      "type": "vmess",
+      "server": "sq.xn--wlqw1swrj04ju56d.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇨🇳 CN-浙江BGP(443端口)",
+      "type": "vmess",
+      "server": "nb.xn--wlqw1swrj04ju56d.com",
+      "server_port": 443,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇨🇳 CN-宿迁BGP(443端口)",
+      "type": "vmess",
+      "server": "sq.xn--wlqw1swrj04ju56d.com",
+      "server_port": 443,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇨🇳 CN-安徽联通(443端口)",
+      "type": "vmess",
+      "server": "ah.xn--wlqw1swrj04ju56d.com",
+      "server_port": 443,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇨🇳 CN-河南移动(443端口)",
+      "type": "vmess",
+      "server": "hn.xn--wlqw1swrj04ju56d.com",
+      "server_port": 443,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇨🇳 CN-安徽 500m",
+      "type": "vmess",
+      "server": "ah.xn--wlqw1swrj04ju56d.com",
+      "server_port": 8888,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇨🇳 CN-上海1G",
+      "type": "vmess",
+      "server": "sh.xn--wlqw1swrj04ju56d.com",
+      "server_port": 8888,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇨🇳 CN-河南1G",
+      "type": "vmess",
+      "server": "hn.xn--wlqw1swrj04ju56d.com",
+      "server_port": 8888,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇨🇳 TW 1G 家宽/Netflix",
+      "type": "vmess",
+      "server": "tw1g.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇨🇳 TW 1G(443端口) 家宽/Netflix",
+      "type": "vmess",
+      "server": "tw1g.xn--vhq70hxyat50h6wk.com",
+      "server_port": 443,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇭🇰 HK 5G",
+      "type": "vmess",
+      "server": "hk5g.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇭🇰 HK 5G(443端口)",
+      "type": "vmess",
+      "server": "hk5g.xn--vhq70hxyat50h6wk.com",
+      "server_port": 443,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇸🇬 SG 5G",
+      "type": "vmess",
+      "server": "sg5g.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇯🇵 JP 5G",
+      "type": "vmess",
+      "server": "jp5g.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🏴‍☠️ Kr 5G",
+      "type": "vmess",
+      "server": "kr5g.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇩🇪 GER Frankfurt 5G",
+      "type": "vmess",
+      "server": "ger.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇸🇬 Singapore4G/Netflix",
+      "type": "vmess",
+      "server": "sg4g.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇯🇵 JP500m/Netflix",
+      "type": "vmess",
+      "server": "jp500m.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇯🇵 JP 4G/Netflix",
+      "type": "vmess",
+      "server": "jp4g.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇬🇧 UK 4G/Netflix",
+      "type": "vmess",
+      "server": "uk4g.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇺🇸 US Phoenix 4G/Netflix",
+      "type": "vmess",
+      "server": "us4g.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇺🇸 US Chicago 4G/Netflix",
+      "type": "vmess",
+      "server": "us4g3.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇺🇸 US Ashburn 4G/Netflix",
+      "type": "vmess",
+      "server": "us4g2.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🏴‍☠️ Dubai 4G/Netflix",
+      "type": "vmess",
+      "server": "dubai4g.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "dubai4g.xn--vhq70hxyat50h6wk.com"
+        }
+      }
+    },
+    {
+      "tag": "🇰🇷 Korea 500m/Netflix",
+      "type": "vmess",
+      "server": "kr500m.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇰🇷 Korea Chunchuan 4G/Netflix",
+      "type": "vmess",
+      "server": "kr4g.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇰🇷 Korea Seoul  4G/Netflix",
+      "type": "vmess",
+      "server": "kr4g2.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🇲🇽 Mexico 4G/Netflix",
+      "type": "vmess",
+      "server": "me.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    },
+    {
+      "tag": "🏴‍☠️ Mumbai 4G/Netflix",
+      "type": "vmess",
+      "server": "mu.xn--vhq70hxyat50h6wk.com",
+      "server_port": 80,
+      "uuid": "af4b506e-34c0-41ae-8ad4-9c1fd5ba3308",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "headers": {
+          "Host": "gw.alicdn.com"
+        },
+        "path": "/"
+      }
+    }
+  ]
+}
