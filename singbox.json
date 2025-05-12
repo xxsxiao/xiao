@@ -22,6 +22,7 @@
     },
     "urltest_unified_delay": true
   },
+  
   "dns": {
     "servers": [
       {
@@ -63,6 +64,7 @@
     "independent_cache": false,
     "reverse_mapping": false
   },
+  
   "inbounds": [
     {
       "type": "mixed",
@@ -98,6 +100,7 @@
       "stack": "system"
     }
   ],
+  
   "outbounds": [
     {
       "tag": "国外策略",
@@ -229,6 +232,7 @@
       "type": "direct"
     }
   ],
+  
   "route": {
     "auto_detect_interface": true,
     "default_domain_resolver": {
@@ -289,6 +293,7 @@
         "outbound": "国外策略"
       }
     ],
+    
     "rule_set": [
       {
         "tag": "geosite:cn",
@@ -366,7 +371,7 @@
         "tag": "adblock",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblocksingbox.srs",
+        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/refs/heads/main/Filters/AWAvenue-Ads-Rule-Singbox.json",
         "download_detour": "国外策略",
         "update_interval": "24h"
       }
