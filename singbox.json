@@ -1,1091 +1,375 @@
 {
   "log": {
     "disabled": false,
-    "level": "info",
+    "level": "panic",
+    "output": "box.log",
     "timestamp": true
   },
   "experimental": {
     "clash_api": {
-      "external_controller": "0.0.0.0:9999",
-      "external_ui": "/etc/sing-box/ui",
+      "external_controller": "0.0.0.0:9090",
+      "external_ui": "ui",
       "secret": "",
-      "external_ui_download_url": "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "国外出口",
-      "default_mode": "规则模式-我要免流-FakeIP"
+      "external_ui_download_url": "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip",
+      "external_ui_download_detour": "国外策略",
+      "default_mode": "rule"
     },
     "cache_file": {
       "enabled": true,
-      "path": "/etc/sing-box/cache.db",
-      "store_fakeip": false
-    }
+      "path": "cache.db",
+      "store_fakeip": true,
+      "store_rdrc": true
+    },
+    "urltest_unified_delay": true
   },
   "dns": {
-    "fakeip": {
-      "enabled": true,
-      "inet4_range": "28.0.0.0/8",
-      "inet6_range": "fc00::/18",
-      "exclude_rule": {
-        "domain_keyword": [
-          "stun",
-          "ntp",
-          "time"
-        ],
-        "domain_suffix": [
-          ".market.xiaomi.com",
-          ".msftncsi.com",
-          ".msftconnecttest.com",
-          ".wotgame.cn",
-          ".wggames.cn",
-          ".wowsgame.cn",
-          ".wargaming.net",
-          ".steamcontent.com",
-          ".weixin.qq.com",
-          ".tencent.com",
-          ".qq.com",
-          "stun.weixin.qq.com"
-        ]
-      }
-    },
-    "hosts": {
-      "dns.pub": [
-        "1.12.12.12",
-        "120.53.53.53"
-      ],
-      "pod.dns": [
-        "119.29.29.29",
-        "2402:4e00::"
-      ],
-      "114.dns": [
-        "114.114.114.114",
-        "114.114.115.115"
-      ],
-      "byte.dns": [
-        "180.184.1.1",
-        "180.184.2.2"
-      ],
-      "router.dns": [
-        "192.168.0.1",
-        "192.168.1.1",
-        "192.168.31.1"
-      ],
-      "dns.alidns.com": [
-        "223.5.5.5",
-        "223.6.6.6",
-        "2400:3200::1",
-        "2400:3200:baba::1"
-      ],
-      "dns.google": [
-        "8.8.4.4",
-        "8.8.8.8",
-        "2001:4860:4860::8844",
-        "2001:4860:4860::8888"
-      ],
-      "dns.quad9.net": [
-        "9.9.9.9",
-        "149.112.112.112",
-        "2620:fe::9",
-        "2620:fe::fe"
-      ],
-      "one.one.one.one": [
-        "1.0.0.1",
-        "1.1.1.1",
-        "2606:4700:4700::1001",
-        "2606:4700:4700::1111"
-      ],
-      "unfiltered.adguard-dns.com": [
-        "94.140.14.140",
-        "94.140.14.141",
-        "2a10:50c0::1:ff",
-        "2a10:50c0::2:ff"
-      ]
-    },
     "servers": [
       {
-        "tag": "direct-dns",
-        "address": [
-          "114.dns",
-          "pod.dns",
-          "byte.dns",
-          "dns.alidns.com"
-        ],
-        "detour": "本机直连"
+        "type": "quic",
+        "tag": "国内dns",
+        "server": "223.5.5.5"
       },
       {
-        "tag": "domestic-dns",
-        "address": [
-          "https://dns.pub/dns-query",
-          "https://dns.alidns.com/dns-query"
-        ],
-        "detour": "国内出口"
-      },
-      {
-        "tag": "proxy-nm",
-        "address": [
-          "tcp://dns.google",
-          "tcp://dns.quad9.net",
-          "tcp://one.one.one.one",
-          "tcp://unfiltered.adguard-dns.com"
-        ],
-        "detour": "国外出口"
-      },
-      {
-        "tag": "proxy-ml",
-        "address": [
-          "https://dns.google/dns-query",
-          "https://dns.quad9.net/dns-query",
-          "https://one.one.one.one/dns-query",
-          "https://unfiltered.adguard-dns.com/dns-query"
-        ],
-        "detour": "国外出口"
-      },
-      {
-        "tag": "global-dns",
-        "address": [
-          "https://dns.google/dns-query",
-          "https://dns.quad9.net/dns-query",
-          "https://one.one.one.one/dns-query",
-          "https://unfiltered.adguard-dns.com/dns-query"
-        ],
-        "detour": "全局代理"
-      },
-      {
-        "tag": "outbound-unknown",
-        "address": [
-          "https://dns.pub/dns-query",
-          "https://dns.alidns.com/dns-query"
-        ],
-        "detour": "百度&钉钉"
-      },
-      {
-        "tag": "fakedns",
-        "address": "fakeip"
-      },
-      {
-        "tag": "nxdomain",
-        "address": "rcode://success"
+        "type": "fakeip",
+        "tag": "fakeip",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
       }
     ],
     "rules": [
       {
-        "outbound": [
-          "本机直连",
-          "OUTBOUNDLESS",
-          "百度&钉钉"
-        ],
-        "server": "direct-dns"
+        "rule_set": ["geosite:cn", "geosite:googlefcm", "geosite:google-cn", "geosite:apple-cn", "geosite:category-games@cn"],
+        "action": "route",
+        "server": "国内dns",
+        "strategy": "ipv4_only"
       },
       {
-        "outbound": "any",
-        "server": "outbound-unknown"
+        "clash_mode": "DIRECT",
+        "server": "国内dns",
+        "strategy": "ipv4_only"
       },
       {
-        "rule_set": [
-          "秋风规则",
-          "10007规则",
-          "阿里巴巴",
-          "百度广告",
-          "字节跳动",
-          "广告奖励",
-          "番茄小说"
-        ],
-        "outbound": "广告模组",
-        "server": "nxdomain",
-        "rewrite_ttl": 0,
-        "disable_cache": true
+        "clash_mode": "GLOBAL",
+        "server": "fakeip"
       },
       {
-        "rule_set": [
-          "HTTPDNS-域名",
-          "虎牙-PCDN｜MCDN-域名"
-        ],
-        "server": "nxdomain",
-        "disable_cache": true
-      },
-      {
-        "clash_mode": [
-          "全局直连-FakeIP",
-          "全局代理-FakeIP",
-          "规则模式-我不免流-FakeIP",
-          "规则模式-我要免流-FakeIP"
-        ],
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
-        "server": "fakedns",
-        "rewrite_ttl": 0,
-        "disable_cache": true
-      },
-      {
-        "clash_mode": [
-          "全局直连-RedirHost",
-          "全局直连-FakeIP"
-        ],
-        "server": "direct-dns"
-      },
-      {
-        "clash_mode": [
-          "全局代理-RedirHost",
-          "全局代理-FakeIP"
-        ],
-        "server": "global-dns"
-      },
-      {
-        "clash_mode": [
-          "规则模式-我不免流-混合模式",
-          "规则模式-我要免流-混合模式"
-        ],
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
-        "rule_set": [
-          "tiktok-域名",
-          "强制代理-域名",
-          "大陆相关-海外服务-域名"
-        ],
-        "server": "fakedns",
-        "rewrite_ttl": 0,
-        "disable_cache": true
-      },
-      {
-        "clash_mode": [
-          "规则模式-我不免流-RedirHost",
-          "规则模式-我不免流-FakeIP",
-          "规则模式-我不免流-混合模式"
-        ],
-        "rule_set": [
-          "tiktok-域名",
-          "强制代理-域名",
-          "大陆相关-海外服务-域名"
-        ],
-        "server": "proxy-nm"
-      },
-      {
-        "clash_mode": [
-          "规则模式-我要免流-RedirHost",
-          "规则模式-我要免流-FakeIP",
-          "规则模式-我要免流-混合模式"
-        ],
-        "rule_set": [
-          "tiktok-域名",
-          "强制代理-域名",
-          "大陆相关-海外服务-域名"
-        ],
-        "server": "proxy-ml"
-      },
-      {
-        "clash_mode": [
-          "规则模式-我不免流-RedirHost",
-          "规则模式-我不免流-FakeIP",
-          "规则模式-我不免流-混合模式"
-        ],
-        "rule_set": [
-          "推送服务-域名",
-          "强制直连-域名",
-          "字节跳动-域名",
-          "大陆相关-域名",
-          "海外公司-大陆服务-域名",
-          "苹果-域名"
-        ],
-        "server": "direct-dns"
-      },
-      {
-        "clash_mode": [
-          "规则模式-我要免流-RedirHost",
-          "规则模式-我要免流-FakeIP",
-          "规则模式-我要免流-混合模式"
-        ],
-        "rule_set": [
-          "推送服务-域名",
-          "强制直连-域名",
-          "字节跳动-域名",
-          "大陆相关-域名",
-          "海外公司-大陆服务-域名",
-          "苹果-域名"
-        ],
-        "server": "domestic-dns"
-      },
-      {
-        "clash_mode": [
-          "规则模式-我不免流-混合模式",
-          "规则模式-我要免流-混合模式"
-        ],
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
-        "rule_set": "海外公司-域名",
-        "server": "fakedns",
-        "rewrite_ttl": 0,
-        "disable_cache": true
-      },
-      {
-        "clash_mode": [
-          "规则模式-我不免流-RedirHost",
-          "规则模式-我不免流-FakeIP",
-          "规则模式-我不免流-混合模式"
-        ],
-        "rule_set": "海外公司-域名",
-        "server": "proxy-nm"
-      },
-      {
-        "clash_mode": [
-          "规则模式-我要免流-RedirHost",
-          "规则模式-我要免流-FakeIP",
-          "规则模式-我要免流-混合模式"
-        ],
-        "rule_set": "海外公司-域名",
-        "server": "proxy-ml"
-      },
-      {
-        "clash_mode": [
-          "规则模式-我不免流-混合模式",
-          "规则模式-我不免流-RedirHost",
-          "规则模式-我不免流-FakeIP"
-        ],
-        "fallback_rules": [
-          {
-            "rule_set": [
-              "推送服务-IP",
-              "大陆相关-IP"
-            ],
-            "server": "direct-dns"
-          },
-          {
-            "clash_mode": "规则模式-我不免流-混合模式",
-            "server": "fakedns",
-            "rewrite_ttl": 0,
-            "disable_cache": true
-          },
-          {
-            "match_all": true,
-            "server": "proxy-nm"
-          }
-        ],
-        "allow_fallthrough": true,
-        "server": "outbound-unknown"
-      },
-      {
-        "clash_mode": [
-          "规则模式-我要免流-混合模式",
-          "规则模式-我要免流-RedirHost",
-          "规则模式-我要免流-FakeIP"
-        ],
-        "fallback_rules": [
-          {
-            "rule_set": [
-              "推送服务-IP",
-              "大陆相关-IP"
-            ],
-            "accept_result": true
-          },
-          {
-            "clash_mode": "规则模式-我要免流-混合模式",
-            "server": "fakedns",
-            "rewrite_ttl": 0,
-            "disable_cache": true
-          },
-          {
-            "match_all": true,
-            "server": "proxy-ml"
-          }
-        ],
-        "allow_fallthrough": true,
-        "server": "domestic-dns"
-      },
-      {
-        "clash_mode": [
-          "规则模式-我不免流-混合模式",
-          "规则模式-我不免流-RedirHost",
-          "规则模式-我不免流-FakeIP"
-        ],
-        "fallback_rules": [
-          {
-            "rule_set": [
-              "推送服务-IP",
-              "大陆相关-IP"
-            ],
-            "accept_result": true
-          },
-          {
-            "clash_mode": "规则模式-我不免流-混合模式",
-            "server": "fakedns",
-            "rewrite_ttl": 0,
-            "disable_cache": true
-          }
-        ],
-        "server": "proxy-nm"
-      },
-      {
-        "clash_mode": [
-          "规则模式-我要免流-混合模式",
-          "规则模式-我要免流-RedirHost",
-          "规则模式-我要免流-FakeIP"
-        ],
-        "fallback_rules": [
-          {
-            "rule_set": [
-              "推送服务-IP",
-              "大陆相关-IP"
-            ],
-            "accept_result": true
-          },
-          {
-            "clash_mode": "规则模式-我要免流-混合模式",
-            "server": "fakedns",
-            "rewrite_ttl": 0,
-            "disable_cache": true
-          }
-        ],
-        "server": "proxy-ml"
+        "inbound": ["mixed-in", "tproxy-in", "redirect-in", "tun-in"],
+        "server": "fakeip"
       }
     ],
-    "lazy_cache": true,
-    "reverse_mapping": true,
-    "mapping_override": true,
-    "independent_cache": true
+    "strategy": "ipv4_only",
+    "disable_cache": false,
+    "disable_expire": false,
+    "independent_cache": false,
+    "reverse_mapping": false
   },
   "inbounds": [
     {
-      "tag": "mixed",
       "type": "mixed",
-      "listen": "::",
-      "listen_port": 12306,
-      "sniff": true,
-      "sniff_override_destination": true,
-      "sniff_override_rules": [
-        {
-          "type": "logical",
-          "mode": "and",
-          "rules": [
-            { "domain_keyword": "." },
-            {
-              "rule_set": [
-                "跳过覆写",
-                "推送服务-IP",
-                "推送服务-域名"
-              ],
-              "invert": true
-            }
-          ]
-        }
-      ]
+      "tag": "mixed-in",
+      "listen": "0.0.0.0",
+      "listen_port": 7890
     },
     {
-      "tag": "socks",
-      "type": "socks",
-      "listen": "::",
-      "listen_port": 1080,
-      "sniff": true,
-      "sniff_override_destination": true,
-      "sniff_override_rules": [
-        {
-          "type": "logical",
-          "mode": "and",
-          "rules": [
-            { "domain_keyword": "." },
-            {
-              "rule_set": [
-                "跳过覆写",
-                "推送服务-IP",
-                "推送服务-域名"
-              ],
-              "invert": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "tag": "http",
-      "type": "http",
-      "listen": "::",
-      "listen_port": 10808,
-      "sniff": true,
-      "sniff_override_destination": true,
-      "sniff_override_rules": [
-        {
-          "type": "logical",
-          "mode": "and",
-          "rules": [
-            { "domain_keyword": "." },
-            {
-              "rule_set": [
-                "跳过覆写",
-                "推送服务-IP",
-                "推送服务-域名"
-              ],
-              "invert": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "tag": "tproxy",
       "type": "tproxy",
-      "listen": "::",
-      "listen_port": 10086,
-      "sniff": true,
-      "sniff_override_destination": true,
-      "sniff_override_rules": [
-        {
-          "type": "logical",
-          "mode": "and",
-          "rules": [
-            { "domain_keyword": "." },
-            {
-              "rule_set": [
-                "跳过覆写",
-                "推送服务-IP",
-                "推送服务-域名"
-              ],
-              "invert": true
-            }
-          ]
-        }
-      ]
+      "tag": "tproxy-in",
+      "listen": "0.0.0.0",
+      "listen_port": 1536
+    },
+    {
+      "type": "redirect",
+      "tag": "redirect-in",
+      "listen": "0.0.0.0",
+      "listen_port": 7891
+    },
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "meta",
+      "address": ["198.18.0.0/30", "fdfe:dcba:9876::1/126"],
+      "mtu": 9000,
+      "auto_route": true,
+      "auto_redirect": false,
+      "strict_route": false,
+      "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
+      "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
+      "endpoint_independent_nat": false,
+      "udp_timeout": "5m",
+      "stack": "system"
     }
   ],
   "outbounds": [
     {
-      "tag": "本机直连",
-      "type": "direct"
+      "tag": "国外策略",
+      "type": "selector",
+      "outbounds": ["国外自动选择", "国外手动选择", "香港", "台湾", "新加坡", "日本", "韩国", "美国"],
+      "interrupt_exist_connections": true
     },
     {
-      "tag": "流量拦截",
+      "tag": "国内手动选择",
+      "type": "selector",
+      "use_all_providers": true,
+      "includes": "移动|联通|电信",
+      "excludes": "ipv6",
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "国外自动选择",
+      "type": "urltest",
+      "use_all_providers": true,
+      "includes": "香港|HK|hk|Hong Kong|HongKong|hongkong|台湾|TW|Taiwan|新加坡|SG|Singapore|日本|JP|Japan|韩国|KR|Korea|美国|US|United States|UnitedStates",
+      "excludes": "ipv6",
+      "url": "https://www.apple.com/library/test/success.html",
+      "interval": "1m",
+      "tolerance": 100,
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "国外手动选择",
+      "type": "selector",
+      "use_all_providers": true,
+      "includes": "香港|HK|hk|Hong Kong|HongKong|hongkong|台湾|TW|Taiwan|新加坡|SG|Singapore|日本|JP|Japan|韩国|KR|Korea|美国|US|United States|UnitedStates",
+      "excludes": "ipv6",
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "广告拦截",
+      "type": "selector",
+      "outbounds": ["block", "pass"],
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "openai",
+      "type": "selector",
+      "outbounds": ["国外自动选择", "国外手动选择", "香港", "台湾", "新加坡", "日本", "韩国", "美国"],
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "香港",
+      "type": "urltest",
+      "use_all_providers": true,
+      "includes": "香港|HK|hk|Hong Kong|HongKong|hongkong",
+      "excludes": "ipv6",
+      "url": "https://www.apple.com/library/test/success.html",
+      "interval": "1m",
+      "tolerance": 100,
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "台湾",
+      "type": "urltest",
+      "use_all_providers": true,
+      "includes": "台湾|TW|Taiwan",
+      "excludes": "ipv6",
+      "url": "https://www.apple.com/library/test/success.html",
+      "interval": "1m",
+      "tolerance": 100,
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "新加坡",
+      "type": "urltest",
+      "use_all_providers": true,
+      "includes": "新加坡|SG|Singapore",
+      "excludes": "ipv6",
+      "url": "https://www.apple.com/library/test/success.html",
+      "interval": "1m",
+      "tolerance": 100,
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "日本",
+      "type": "urltest",
+      "use_all_providers": true,
+      "includes": "日本|JP|Japan",
+      "excludes": "ipv6",
+      "url": "https://www.apple.com/library/test/success.html",
+      "interval": "1m",
+      "tolerance": 100,
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "韩国",
+      "type": "urltest",
+      "use_all_providers": true,
+      "includes": "韩国|KR|Korea",
+      "excludes": "ipv6",
+      "url": "https://www.apple.com/library/test/success.html",
+      "interval": "1m",
+      "tolerance": 100,
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "美国",
+      "type": "urltest",
+      "use_all_providers": true,
+      "includes": "美国|US|United States|UnitedStates",
+      "excludes": "ipv6",
+      "url": "https://www.apple.com/library/test/success.html",
+      "interval": "1m",
+      "tolerance": 100,
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "pass",
+      "type": "pass"
+    },
+    {
+      "tag": "block",
       "type": "block"
     },
     {
-      "tag": "域名解析",
-      "type": "dns"
-    },
-    {
-      "tag": "彩信 WAP",
-      "type": "http",
-      "server": "10.0.0.200",
-      "server_port": 80,
-      "headers": {
-        "XWith-At": "dl.music.189.cn",
-        "Host": "mmsc.vnet.mobi"
-      }
-    },
-    {
-      "tag": "国内出口",
+      "tag": "GLOBAL",
       "type": "selector",
-      "interrupt_exist_connections": true,
-      "default": "百度&钉钉",
-      "fallback_by_delay_test": true,
-      "outbounds": [
-        "国内节点",
-        "国外节点",
-        "百度&钉钉",
-        "链式代理节点",
-        "节点分享",
-        "本机直连"
-      ]
+      "use_all_providers": true,
+      "interrupt_exist_connections": true
     },
     {
-      "tag": "国外出口",
-      "type": "selector",
-      "interrupt_exist_connections": true,
-      "default": "百度&钉钉",
-      "fallback_by_delay_test": true,
-      "outbounds": [
-        "国内节点",
-        "国外节点",
-        "百度&钉钉",
-        "链式代理节点",
-        "节点分享",
-        "本机直连",
-        "节点测试"
-      ]
-    },
-    {
-      "tag": "UDP 出口",
-      "type": "selector",
-      "interrupt_exist_connections": true,
-      "default": "流量拦截",
-      "fallback_by_delay_test": true,
-      "outbounds": [
-        "国内节点",
-        "国外节点",
-        "百度&钉钉",
-        "链式代理节点",
-        "节点分享",
-        "流量拦截",
-        "UDP 节点"
-      ]
-    },
-    {
-      "tag": "iPv6代理",
-      "type": "selector",
-      "interrupt_exist_connections": true,
-      "default": "流量拦截",
-      "fallback_by_delay_test": true,
-      "outbounds": [
-        "国内节点",
-        "国外节点",
-        "链式代理节点",
-        "节点分享",
-        "本机直连",
-        "流量拦截"
-      ]
-    },
-    {
-      "tag": "特殊代理",
-      "type": "selector",
-      "interrupt_exist_connections": true,
-      "default": "百度&钉钉",
-      "fallback_by_delay_test": true,
-      "outbounds": [
-        "国内节点",
-        "国外节点",
-        "百度&钉钉",
-        "链式代理节点",
-        "节点分享",
-        "本机直连"
-      ]
-    },
-    {
-      "tag": "广告模组",
-      "type": "selector",
-      "interrupt_exist_connections": true,
-      "default": "流量拦截",
-      "fallback_by_delay_test": true,
-      "outbounds": [
-        "流量拦截",
-        "本机直连"
-      ]
-    },
-    {
-      "tag": "国内节点",
-      "type": "urltest",
-      "interrupt_exist_connections": true,
-      "providers": [
-        "订阅"
-      ],
-      "includes": [
-        "🇨🇳"
-      ],
-      "excludes": [
-        "☠️",
-        "🏴",
-        "🏳️‍🌈"
-      ]
-    },
-    {
-      "tag": "国外节点",
-      "type": "urltest",
-      "interrupt_exist_connections": true,
-      "providers": [
-        "订阅"
-      ],
-      "excludes": [
-        "🇨🇳",
-        "☠️",
-        "🏴",
-        "🏳️‍🌈"
-      ]
-    },
-    {
-      "tag": "UDP 节点",
-      "type": "urltest",
-      "interrupt_exist_connections": true,
-      "providers": [
-        "订阅"
-      ]
-    },
-    {
-      "tag": "百度&钉钉",
-      "type": "selector",
-      "interrupt_exist_connections": true,
-      "fallback_by_delay_test": true,
-      "providers": [
-        "百度&钉钉"
-      ]
-    },
-    {
-      "tag": "节点分享",
-      "type": "selector",
-      "interrupt_exist_connections": true,
-      "fallback_by_delay_test": true,
-      "providers": [
-        "节点分享"
-      ]
-    },
-    {
-      "tag": "链式代理节点",
-      "type": "urltest",
-      "interrupt_exist_connections": true,
-      "providers": [
-        "链式代理"
-      ],
-      "excludes": [
-        "☠️",
-        "🏴",
-        "🏳️‍🌈"
-      ]
-    },
-    {
-      "tag": "节点测试",
-      "type": "selector",
-      "providers": [
-        "节点测试"
-      ]
+      "tag": "DIRECT",
+      "type": "direct"
     }
   ],
   "route": {
+    "auto_detect_interface": true,
+    "default_domain_resolver": {
+      "server": "国内dns",
+      "strategy": "ipv4_only"
+    },
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "clash_mode": "DIRECT",
+        "outbound": "DIRECT"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "protocol": "quic"
+          },
+          {
+            "rule_set": ["geosite:cn", "geosite:googlefcm", "geosite:google-cn", "geosite:apple-cn", "geosite:category-games@cn"],
+            "invert": true
+          }
+        ],
+        "action": "reject"
+      },
+      {
+        "clash_mode": "GLOBAL",
+        "outbound": "GLOBAL"
+      },
+      {
+        "rule_set": ["adblock"],
+        "outbound": "广告拦截"
+      },
+      {
+        "domain_suffix": ["geosite:openai", "deepseek.com", "portal101.cn"],
+        "outbound": "openai"
+      },
+      {
+        "rule_set": ["geosite:googlefcm", "geosite:google-cn", "geosite:apple-cn", "geosite:category-games@cn"],
+        "outbound": "DIRECT"
+      },
+      {
+        "rule_set": ["geosite:cn", "geoip:cn"],
+        "outbound": "DIRECT"
+      },
+      {
+        "rule_set": ["geosite:private", "geoip:private"],
+        "outbound": "DIRECT"
+      },
+      {
+        "outbound": "国外策略"
+      }
+    ],
     "rule_set": [
       {
-        "tag": "广告奖励",
-        "path": "./RuleProviders/A_广告奖励.json",
-        "type": "local",
-        "format": "source"
-      },
-      {
-        "tag": "番茄小说",
-        "path": "./RuleProviders/A_番茄小说.json",
-        "type": "local",
-        "format": "source"
-      },
-      {
-        "tag": "A_特殊代理",
-        "path": "./RuleProviders/A_特殊代理.json",
-        "type": "local",
-        "format": "source"
-      },
-      {
-        "tag": "A_特殊代理百度",
-        "path": "./RuleProviders/A_特殊代理百度.json",
-        "type": "local",
-        "format": "source"
-      },
-      {
-        "tag": "A_特殊代理iPv6",
-        "path": "./RuleProviders/A_特殊代理iPv6.json",
-        "type": "local",
-        "format": "source"
-      },
-      {
-        "tag": "A_微信",
-        "path": "./RuleProviders/A_WeChat.json",
-        "url": "https://raw.githubusercontent.com/tangnahuaite/sing-box_Route-rules/main/rule_json/WeChat.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "A_tiktok",
-        "path": "./RuleProviders/A_tiktok.json",
-        "url": "https://raw.githubusercontent.com/Yuu518/sing-box-rules/refs/heads/rule_set/rule_set_site/tiktok.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "A_YouTube",
-        "path": "./RuleProviders/A_YouTube.json",
-        "url": "https://raw.githubusercontent.com/tangnahuaite/sing-box_Route-rules/main/rule_json/YouTube.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "A_Google",
-        "path": "./RuleProviders/A_Google.json",
-        "url": "https://raw.githubusercontent.com/Yuu518/sing-box-rules/rule_set/rule_set_site/google.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "A_GoogleFCM",
-        "path": "./RuleProviders/A_GoogleFCM.json",
-        "url": "https://raw.githubusercontent.com/tangnahuaite/sing-box_Route-rules/main/rule_json/GoogleFCM.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "A_18禁",
-        "path": "./RuleProviders/A_18禁.json",
-        "url": "https://raw.githubusercontent.com/Yuu518/sing-box-rules/rule_set/rule_set_site/18comic.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "A_bing",
-        "path": "./RuleProviders/A_bing.json",
-        "url": "https://raw.githubusercontent.com/Yuu518/sing-box-rules/rule_set/rule_set_site/bing.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "A_github",
-        "path": "./RuleProviders/A_github.json",
-        "url": "https://raw.githubusercontent.com/Yuu518/sing-box-rules/rule_set/rule_set_site/github.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "A_Telegram",
-        "path": "./RuleProviders/A_Telegram.json",
-        "url": "https://raw.githubusercontent.com/tangnahuaite/sing-box_Route-rules/main/rule_json/Telegram.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "秋风规则",
-        "path": "./RuleProviders/A_秋风规则.json",
-        "url": "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Singbox.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "10007规则",
-        "path": "./RuleProviders/A_10007规则.json",
-        "url": "https://raw.githubusercontent.com/xxsxiao/xiao/refs/heads/main/10007.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "阿里巴巴",
-        "path": "./RuleProviders/A_阿里广告.json",
-        "url": "https://raw.githubusercontent.com/Yuu518/sing-box-rules/rule_set/rule_set_site/alibaba-ads.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "百度广告",
-        "path": "./RuleProviders/A_百度广告.json",
-        "url": "https://raw.githubusercontent.com/Yuu518/sing-box-rules/rule_set/rule_set_site/baidu-ads.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "字节跳动",
-        "path": "./RuleProviders/A_字节跳动广告.json",
-        "url": "https://raw.githubusercontent.com/Yuu518/sing-box-rules/rule_set/rule_set_site/bytedance-ads.json",
-        "type": "remote",
-        "format": "source",
-        "download_detour": "国外出口",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "海外公司-域名",
-        "path": "./RuleProviders/海外公司-域名.srs",
-        "url": "https://raw.githubusercontent.com/UptonEdward/sing-geosite/rule-set/geosite-geolocation-!cn.srs",
+        "tag": "geosite:cn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "国外出口",
+        "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-cn.srs",
+        "download_detour": "国外策略",
         "update_interval": "24h"
       },
       {
-        "tag": "海外公司-大陆服务-域名",
-        "path": "./RuleProviders/海外公司-大陆服务-域名.srs",
-        "url": "https://raw.githubusercontent.com/UptonEdward/sing-geosite/rule-set/geosite-geolocation-!cn@cn.srs",
+        "tag": "geoip:cn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "国外出口",
+        "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geoip/geoip-cn.srs",
+        "download_detour": "国外策略",
         "update_interval": "24h"
       },
       {
-        "tag": "大陆相关-域名",
-        "path": "./RuleProviders/大陆相关-域名.srs",
-        "url": "https://raw.githubusercontent.com/UptonEdward/sing-geosite/rule-set/geosite-cn.srs",
+        "tag": "geosite:openai",
         "type": "remote",
         "format": "binary",
-        "download_detour": "国外出口",
+        "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-openai.srs",
+        "download_detour": "国外策略",
         "update_interval": "24h"
       },
       {
-        "tag": "大陆相关-海外服务-域名",
-        "path": "./RuleProviders/大陆相关-海外服务-域名.srs",
-        "url": "https://raw.githubusercontent.com/UptonEdward/sing-geosite/rule-set/geosite-cn@!cn.srs",
+        "tag": "geosite:googlefcm",
         "type": "remote",
         "format": "binary",
-        "download_detour": "国外出口",
+        "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-googlefcm.srs",
+        "download_detour": "国外策略",
         "update_interval": "24h"
       },
       {
-        "tag": "大陆相关-IP",
-        "path": "./RuleProviders/大陆相关-IP.srs",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs",
+        "tag": "geosite:google-cn",
         "type": "remote",
         "format": "binary",
-        "download_detour": "国外出口",
+        "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-google-cn.srs",
+        "download_detour": "国外策略",
+        "update_interval": "24h"
+      },
+      {
+        "tag": "geosite:apple-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-apple-cn.srs",
+        "download_detour": "国外策略",
+        "update_interval": "24h"
+      },
+      {
+        "tag": "geosite:category-games@cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-category-games@cn.srs",
+        "download_detour": "国外策略",
+        "update_interval": "24h"
+      },
+      {
+        "tag": "geosite:private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-private.srs",
+        "download_detour": "国外策略",
+        "update_interval": "24h"
+      },
+      {
+        "tag": "geoip:private",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geoip/geoip-private.srs",
+        "download_detour": "国外策略",
+        "update_interval": "24h"
+      },
+      {
+        "tag": "adblock",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblocksingbox.srs",
+        "download_detour": "国外策略",
         "update_interval": "24h"
       }
     ]
-  }
-  "route": {
-    "rules": [
-      {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          { "protocol": "dns" },
-          { "port": 53 }
-        ],
-        "outbound": "域名解析"
-      },
-      {
-        "rule_set": ["秋风规则", "10007规则", "阿里巴巴", "百度广告", "字节跳动", "广告奖励", "番茄小说"],
-        "outbound": "广告模组"
-      },
-      {
-        "rule_set": ["HTTPDNS-域名", "虎牙-PCDN｜MCDN-域名"],
-        "outbound": "流量拦截"
-      },
-      {
-        "protocol": "stun",
-        "rule_set": ["字节跳动-域名", "tiktok-域名", "虎牙-域名", "斗鱼-域名"],
-        "outbound": "流量拦截"
-      },
-      {
-        "clash_mode": ["全局直连-RedirHost", "全局直连-FakeIP"],
-        "outbound": "本机直连"
-      },
-      {
-        "clash_mode": ["全局代理-RedirHost", "全局代理-FakeIP"],
-        "outbound": "国外出口"
-      },
-      {
-        "network": "udp",
-        "clash_mode": ["规则模式-我不免流-RedirHost", "规则模式-我不免流-FakeIP", "规则模式-我不免流-混合模式"],
-        "outbound": "本机直连"
-      },
-      {
-        "network": "udp",
-        "clash_mode": ["规则模式-我要免流-RedirHost", "规则模式-我要免流-FakeIP", "规则模式-我要免流-混合模式"],
-        "outbound": "UDP 出口"
-      },
-      {
-        "ip_version": 6,
-        "ip_cidr": ["::/0"],
-        "rule_set": ["A_特殊代理iPv6"],
-        "clash_mode": ["规则模式-我不免流-RedirHost", "规则模式-我不免流-FakeIP", "规则模式-我不免流-混合模式"],
-        "outbound": "本机直连"
-      },
-      {
-        "ip_version": 6,
-        "ip_cidr": ["::/0"],
-        "rule_set": ["A_特殊代理iPv6"],
-        "clash_mode": ["规则模式-我要免流-RedirHost", "规则模式-我要免流-FakeIP", "规则模式-我要免流-混合模式"],
-        "outbound": "iPv6代理"
-      },
-      {
-        "rule_set": ["A_特殊代理", "A_特殊代理百度"],
-        "clash_mode": ["规则模式-我不免流-RedirHost", "规则模式-我不免流-FakeIP", "规则模式-我不免流-混合模式"],
-        "outbound": "本机直连"
-      },
-      {
-        "rule_set": ["A_特殊代理", "A_特殊代理百度"],
-        "clash_mode": ["规则模式-我要免流-RedirHost", "规则模式-我要免流-FakeIP", "规则模式-我要免流-混合模式"],
-        "outbound": "特殊代理"
-      },
-      {
-        "rule_set": ["A_Telegram", "A_Google", "A_GoogleFCM", "A_tiktok", "A_YouTube", "A_github", "A_18禁", "A_bing"],
-        "clash_mode": ["规则模式-我不免流-RedirHost", "规则模式-我不免流-FakeIP", "规则模式-我不免流-混合模式"],
-        "outbound": "本机直连"
-      },
-      {
-        "rule_set": ["A_Telegram", "A_Google", "A_GoogleFCM", "A_tiktok", "A_YouTube", "A_github", "A_18禁", "A_bing"],
-        "clash_mode": ["规则模式-我要免流-RedirHost", "规则模式-我要免流-FakeIP", "规则模式-我要免流-混合模式"],
-        "outbound": "国外出口"
-      },
-      {
-        "rule_set": ["A_微信"],
-        "clash_mode": ["规则模式-我不免流-RedirHost", "规则模式-我不免流-FakeIP", "规则模式-我不免流-混合模式"],
-        "outbound": "本机直连"
-      },
-      {
-        "rule_set": ["A_微信"],
-        "clash_mode": ["规则模式-我要免流-RedirHost", "规则模式-我要免流-FakeIP", "规则模式-我要免流-混合模式"],
-        "outbound": "国内出口"
-      },
-      {
-        "clash_mode": ["规则模式-我不免流-混合模式", "规则模式-我要免流-混合模式"],
-        "fake_ip": true,
-        "outbound": "国外出口"
-      },
-      {
-        "rule_set": ["tiktok-域名", "强制代理-域名", "大陆相关-海外服务-域名"],
-        "outbound": "国外出口"
-      },
-      {
-        "rule_set": ["推送服务-域名", "强制直连-域名", "字节跳动-域名", "大陆相关-域名", "海外公司-大陆服务-域名", "苹果-域名"],
-        "clash_mode": ["规则模式-我不免流-RedirHost", "规则模式-我不免流-FakeIP", "规则模式-我不免流-混合模式"],
-        "outbound": "本机直连"
-      },
-      {
-        "rule_set": ["推送服务-域名", "强制直连-域名", "字节跳动-域名", "大陆相关-域名", "海外公司-大陆服务-域名", "苹果-域名"],
-        "clash_mode": ["规则模式-我要免流-RedirHost", "规则模式-我要免流-FakeIP", "规则模式-我要免流-混合模式"],
-        "outbound": "国内出口"
-      },
-      {
-        "rule_set": ["海外公司-域名"],
-        "outbound": "国外出口"
-      },
-      {
-        "ip_cidr": [
-          "0.0.0.0/8",
-          "127.0.0.0/8",
-          "192.168.0.0/16",
-          "::/128",
-          "::1/128",
-          "fc70::/10",
-          "fe80::/10"
-        ],
-        "outbound": "本机直连"
-      },
-      {
-        "rule_set": ["推送服务-IP", "大陆相关-IP"],
-        "clash_mode": ["规则模式-我不免流-RedirHost", "规则模式-我不免流-FakeIP", "规则模式-我不免流-混合模式"],
-        "outbound": "本机直连"
-      },
-      {
-        "ip_is_private": true,
-        "clash_mode": ["规则模式-我不免流-RedirHost", "规则模式-我不免流-FakeIP", "规则模式-我不免流-混合模式"],
-        "outbound": "本机直连"
-      },
-      {
-        "rule_set": ["推送服务-IP", "大陆相关-IP"],
-        "clash_mode": ["规则模式-我要免流-RedirHost", "规则模式-我要免流-FakeIP", "规则模式-我要免流-混合模式"],
-        "outbound": "国内出口"
-      },
-      {
-        "ip_is_private": true,
-        "clash_mode": ["规则模式-我要免流-RedirHost", "规则模式-我要免流-FakeIP", "规则模式-我要免流-混合模式"],
-        "outbound": "国内出口"
-      }
-    ],
-    "final": "国外出口",
-    "auto_detect_interface": true,
-    "find_process": true,
-    "concurrent_dial": false
   }
 }
