@@ -1,70 +1,74 @@
 {
   "log": {
     "disabled": false,
-    "level": "panic",
-    "output": "box.log",
+    "level": "info",
     "timestamp": true
   },
+
   "experimental": {
     "clash_api": {
-      "external_controller": "0.0.0.0:9090",
-      "external_ui": "ui",
+      "external_controller": "0.0.0.0:9999",
+      "external_ui": "/etc/sing-box/ui",
       "secret": "",
-      "external_ui_download_url": "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip",
-      "external_ui_download_detour": "国外策略",
+      "external_ui_download_url": "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip",
+      "external_ui_download_detour": "➡️ 直连",
       "default_mode": "rule"
     },
     "cache_file": {
       "enabled": true,
-      "path": "cache.db",
-      "store_fakeip": true,
-      "store_rdrc": true
-    },
-    "urltest_unified_delay": true
+      "path": "/etc/sing-box/cache.db",
+      "store_fakeip": false
+    }
   },
-  
+
   "dns": {
     "servers": [
       {
-        "type": "quic",
-        "tag": "国内dns",
-        "server": "223.5.5.5"
+        "tag": "dns_direct",
+        "address": "223.5.5.5",
+        "address_strategy": "ipv4_only",
+        "strategy": "ipv4_only",
+        "detour": "国内dns"
       },
       {
-        "type": "fakeip",
-        "tag": "fakeip",
-        "inet4_range": "198.18.0.0/15",
-        "inet6_range": "fc00::/18"
+        "tag": "dns_proxy",
+        "address": "tls://8.8.8.8",
+        "address_strategy": "ipv4_only",
+        "strategy": "ipv4_only",
+        "detour": "国外dns"
       }
     ],
     "rules": [
       {
-        "rule_set": ["geosite:cn", "geosite:googlefcm", "geosite:google-cn", "geosite:apple-cn", "geosite:category-games@cn"],
+        "outbound": "any",
+        "server": "国内dns",
+        "disable_cache": true
+      },
+      {
+        "clash_mode": "Direct",
+        "server": "国内dns"
+      },
+      {
+        "clash_mode": "Global",
+        "server": "国外dns"
+      },
+      {
+        "rule_set": [
+          "geosite:cn",
+          "geosite:googlefcm",
+          "geosite:google-cn",
+          "geosite:apple-cn",
+          "geosite:category-games@cn"
+        ],
         "action": "route",
         "server": "国内dns",
         "strategy": "ipv4_only"
-      },
-      {
-        "clash_mode": "DIRECT",
-        "server": "国内dns",
-        "strategy": "ipv4_only"
-      },
-      {
-        "clash_mode": "GLOBAL",
-        "server": "fakeip"
-      },
-      {
-        "inbound": ["mixed-in", "tproxy-in", "redirect-in", "tun-in"],
-        "server": "fakeip"
       }
     ],
-    "strategy": "ipv4_only",
-    "disable_cache": false,
-    "disable_expire": false,
-    "independent_cache": false,
-    "reverse_mapping": false
+    "final": "国外dns",
+    "strategy": "ipv4_only"
   },
-  
+
   "inbounds": [
     {
       "type": "mixed",
@@ -88,134 +92,117 @@
       "type": "tun",
       "tag": "tun-in",
       "interface_name": "meta",
-      "address": ["198.18.0.0/30", "fdfe:dcba:9876::1/126"],
+      "address": [
+        "198.18.0.0/30",
+        "fdfe:dcba:9876::1/126"
+      ],
       "mtu": 9000,
       "auto_route": true,
       "auto_redirect": false,
       "strict_route": false,
-      "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
-      "route_exclude_address": ["192.168.0.0/16", "fc00::/7"],
+      "route_address": [
+        "0.0.0.0/1",
+        "128.0.0.0/1",
+        "::/1",
+        "8000::/1"
+      ],
+      "route_exclude_address": [
+        "192.168.0.0/16",
+        "fc00::/7"
+      ],
       "endpoint_independent_nat": false,
       "udp_timeout": "5m",
       "stack": "system"
     }
   ],
-  
+
   "outbounds": [
     {
-      "tag": "国外策略",
+      "tag": "国内出口",
       "type": "selector",
-      "outbounds": ["国外自动选择", "国外手动选择", "香港", "台湾", "新加坡", "日本", "韩国", "美国"],
-      "interrupt_exist_connections": true
+      "outbounds": [
+        "🐸 国内节点",
+        "♻️ 国外节点"
+      ]
     },
     {
-      "tag": "国内手动选择",
+      "tag": "国外出口",
       "type": "selector",
-      "use_all_providers": true,
-      "includes": "移动|联通|电信",
-      "excludes": "ipv6",
-      "interrupt_exist_connections": true
+      "outbounds": [
+        "🇺🇲 国内节点",
+        "🐸 国外节点"
+      ]
     },
     {
-      "tag": "国外自动选择",
-      "type": "urltest",
-      "use_all_providers": true,
-      "includes": "香港|HK|hk|Hong Kong|HongKong|hongkong|台湾|TW|Taiwan|新加坡|SG|Singapore|日本|JP|Japan|韩国|KR|Korea|美国|US|United States|UnitedStates",
-      "excludes": "ipv6",
-      "url": "https://www.apple.com/library/test/success.html",
-      "interval": "1m",
-      "tolerance": 100,
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "国外手动选择",
+      "tag": "国内节点",
       "type": "selector",
-      "use_all_providers": true,
-      "includes": "香港|HK|hk|Hong Kong|HongKong|hongkong|台湾|TW|Taiwan|新加坡|SG|Singapore|日本|JP|Japan|韩国|KR|Korea|美国|US|United States|UnitedStates",
-      "excludes": "ipv6",
-      "interrupt_exist_connections": true
+      "outbounds": [
+        "♻️ 自动选择",
+        "🐸 手动切换"
+      ]
     },
     {
-      "tag": "广告拦截",
+      "tag": "国外节点",
       "type": "selector",
-      "outbounds": ["block", "pass"],
-      "interrupt_exist_connections": true
+      "outbounds": [
+        "♻️ 自动选择",
+        "🐸 手动切换"
+      ]
     },
     {
-      "tag": "openai",
+      "tag": "🐸 手动切换",
       "type": "selector",
-      "outbounds": ["国外自动选择", "国外手动选择", "香港", "台湾", "新加坡", "日本", "韩国", "美国"],
-      "interrupt_exist_connections": true
+      "outbounds": [
+        "{all}"
+      ]
     },
     {
-      "tag": "香港",
+      "tag": "🇭🇰 国内节点",
+      "type": "selector",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇭🇰|HK|hk|香港|港|HongKong"
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "🇯🇵 国外节点",
+      "type": "selector",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇯🇵|JP|jp|日本|日|Japan"
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "♻️ 自动选择",
       "type": "urltest",
-      "use_all_providers": true,
-      "includes": "香港|HK|hk|Hong Kong|HongKong|hongkong",
-      "excludes": "ipv6",
-      "url": "https://www.apple.com/library/test/success.html",
-      "interval": "1m",
-      "tolerance": 100,
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "台湾",
-      "type": "urltest",
-      "use_all_providers": true,
-      "includes": "台湾|TW|Taiwan",
-      "excludes": "ipv6",
-      "url": "https://www.apple.com/library/test/success.html",
-      "interval": "1m",
-      "tolerance": 100,
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "新加坡",
-      "type": "urltest",
-      "use_all_providers": true,
-      "includes": "新加坡|SG|Singapore",
-      "excludes": "ipv6",
-      "url": "https://www.apple.com/library/test/success.html",
-      "interval": "1m",
-      "tolerance": 100,
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "日本",
-      "type": "urltest",
-      "use_all_providers": true,
-      "includes": "日本|JP|Japan",
-      "excludes": "ipv6",
-      "url": "https://www.apple.com/library/test/success.html",
-      "interval": "1m",
-      "tolerance": 100,
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "韩国",
-      "type": "urltest",
-      "use_all_providers": true,
-      "includes": "韩国|KR|Korea",
-      "excludes": "ipv6",
-      "url": "https://www.apple.com/library/test/success.html",
-      "interval": "1m",
-      "tolerance": 100,
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "美国",
-      "type": "urltest",
-      "use_all_providers": true,
-      "includes": "美国|US|United States|UnitedStates",
-      "excludes": "ipv6",
-      "url": "https://www.apple.com/library/test/success.html",
-      "interval": "1m",
-      "tolerance": 100,
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "pass",
-      "type": "pass"
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "exclude",
+          "keywords": [
+            "网站|地址|剩余|过期|时间|有效|济南|武汉|徐州|镇江|最新|禁止|国内|国际"
+          ]
+        }
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
     },
     {
       "tag": "block",
@@ -228,11 +215,11 @@
       "interrupt_exist_connections": true
     },
     {
-      "tag": "DIRECT",
+      "tag": "direct",
       "type": "direct"
     }
   ],
-  
+
   "route": {
     "auto_detect_interface": true,
     "default_domain_resolver": {
@@ -248,8 +235,12 @@
         "action": "hijack-dns"
       },
       {
-        "clash_mode": "DIRECT",
-        "outbound": "DIRECT"
+        "clash_mode": "direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "GLOBAL"
       },
       {
         "type": "logical",
@@ -259,121 +250,135 @@
             "protocol": "quic"
           },
           {
-            "rule_set": ["geosite:cn", "geosite:googlefcm", "geosite:google-cn", "geosite:apple-cn", "geosite:category-games@cn"],
+            "rule_set": [
+              "geosite:cn",
+              "geosite:googlefcm",
+              "geosite:google-cn",
+              "geosite:apple-cn",
+              "geosite:category-games@cn"
+            ],
             "invert": true
           }
         ],
         "action": "reject"
       },
       {
-        "clash_mode": "GLOBAL",
-        "outbound": "GLOBAL"
-      },
-      {
-        "rule_set": ["adblock"],
-        "outbound": "广告拦截"
-      },
-      {
-        "domain_suffix": ["geosite:openai", "deepseek.com", "portal101.cn"],
+        "domain_suffix": [
+          "geosite:openai",
+          "deepseek.com",
+          "portal101.cn"
+        ],
         "outbound": "openai"
       },
       {
-        "rule_set": ["geosite:googlefcm", "geosite:google-cn", "geosite:apple-cn", "geosite:category-games@cn"],
-        "outbound": "DIRECT"
+        "rule_set": [
+          "geosite:googlefcm",
+          "geosite:google-cn",
+          "geosite:apple-cn",
+          "geosite:category-games@cn"
+        ],
+        "outbound": "direct"
       },
       {
-        "rule_set": ["geosite:cn", "geoip:cn"],
-        "outbound": "DIRECT"
+        "rule_set": [
+          "geosite:cn",
+          "geoip:cn"
+        ],
+        "outbound": "direct"
       },
       {
-        "rule_set": ["geosite:private", "geoip:private"],
-        "outbound": "DIRECT"
+        "rule_set": [
+          "geosite:private",
+          "geoip:private"
+        ],
+        "outbound": "direct"
       },
       {
-        "outbound": "国外策略"
+        "outbound": "国外出口"
       }
     ],
-    
+
     "rule_set": [
       {
         "tag": "geosite:cn",
         "type": "remote",
         "format": "binary",
         "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-cn.srs",
-        "download_detour": "国外策略",
-        "update_interval": "24h"
+        "path": "./rule_set/geosite-cn.srs",
+        "download_detour": "国外出口",
+        "update_interval": "1d"
       },
       {
         "tag": "geoip:cn",
         "type": "remote",
         "format": "binary",
         "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geoip/geoip-cn.srs",
-        "download_detour": "国外策略",
-        "update_interval": "24h"
+        "path": "./rule_set/geoip-cn.srs",
+        "download_detour": "国外出口",
+        "update_interval": "1d"
       },
       {
         "tag": "geosite:openai",
         "type": "remote",
         "format": "binary",
         "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-openai.srs",
-        "download_detour": "国外策略",
-        "update_interval": "24h"
+        "path": "./rule_set/geosite-openai.srs",
+        "download_detour": "国外出口",
+        "update_interval": "1d"
       },
       {
         "tag": "geosite:googlefcm",
         "type": "remote",
         "format": "binary",
         "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-googlefcm.srs",
-        "download_detour": "国外策略",
-        "update_interval": "24h"
+        "path": "./rule_set/geosite-googlefcm.srs",
+        "download_detour": "国外出口",
+        "update_interval": "1d"
       },
       {
         "tag": "geosite:google-cn",
         "type": "remote",
         "format": "binary",
         "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-google-cn.srs",
-        "download_detour": "国外策略",
-        "update_interval": "24h"
+        "path": "./rule_set/geosite-google-cn.srs",
+        "download_detour": "国外出口",
+        "update_interval": "1d"
       },
       {
         "tag": "geosite:apple-cn",
         "type": "remote",
         "format": "binary",
         "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-apple-cn.srs",
-        "download_detour": "国外策略",
-        "update_interval": "24h"
+        "path": "./rule_set/geosite-apple-cn.srs",
+        "download_detour": "国外出口",
+        "update_interval": "1d"
       },
       {
         "tag": "geosite:category-games@cn",
         "type": "remote",
         "format": "binary",
         "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-category-games@cn.srs",
-        "download_detour": "国外策略",
-        "update_interval": "24h"
+        "path": "./rule_set/geosite-category-games@cn.srs",
+        "download_detour": "国外出口",
+        "update_interval": "1d"
       },
       {
         "tag": "geosite:private",
         "type": "remote",
         "format": "binary",
         "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geosite/geosite-private.srs",
-        "download_detour": "国外策略",
-        "update_interval": "24h"
+        "path": "./rule_set/geosite-private.srs",
+        "download_detour": "国外出口",
+        "update_interval": "1d"
       },
       {
         "tag": "geoip:private",
         "type": "remote",
         "format": "binary",
         "url": "https://github.com/lyc8503/sing-box-rules/raw/refs/heads/rule-set-geoip/geoip-private.srs",
-        "download_detour": "国外策略",
-        "update_interval": "24h"
-      },
-      {
-        "tag": "adblock",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://gh-proxy.com/https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/refs/heads/main/Filters/AWAvenue-Ads-Rule-Singbox.json",
-        "download_detour": "国外策略",
-        "update_interval": "24h"
+        "path": "./rule_set/geoip-private.srs",
+        "download_detour": "国外出口",
+        "update_interval": "1d"
       }
     ]
   }
